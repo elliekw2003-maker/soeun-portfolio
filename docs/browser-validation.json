@@ -1,0 +1,90 @@
+{
+  "responsive": [
+    {
+      "width": 360,
+      "overflow": false,
+      "galleryWrapping": true,
+      "heightStable": true,
+      "originalViewer": true,
+      "escapeFocusReturn": true,
+      "menu": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "galleryWrapping": true,
+      "heightStable": true,
+      "originalViewer": true,
+      "escapeFocusReturn": true,
+      "menu": true
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "galleryWrapping": true,
+      "heightStable": true,
+      "originalViewer": true,
+      "escapeFocusReturn": true,
+      "menu": true
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "galleryWrapping": true,
+      "heightStable": true,
+      "originalViewer": true,
+      "escapeFocusReturn": true,
+      "menu": true
+    }
+  ],
+  "input": {
+    "viewports": [],
+    "interactions": [
+      "ace: Tab, Enter, Space, arrows, focus and scroll passed",
+      "lunchie: Tab, Enter, Space, arrows, focus and scroll passed",
+      "shiftpilot: Tab, Enter, Space, arrows, focus and scroll passed",
+      "ace: emulated horizontal swipe and vertical scroll passed",
+      "lunchie: emulated horizontal swipe and vertical scroll passed",
+      "shiftpilot: emulated horizontal swipe and vertical scroll passed"
+    ],
+    "runtimeErrors": [],
+    "pinchZoom": 3.924886465072632,
+    "reducedMotion": "passed",
+    "globalArrowIsolation": "passed"
+  },
+  "motion": {
+    "hero": {
+      "rect": {
+        "x": 60,
+        "y": 258.5,
+        "width": 1305,
+        "height": 254.59375,
+        "top": 258.5,
+        "right": 1365,
+        "bottom": 513.09375,
+        "left": 60
+      },
+      "charCount": 18,
+      "opacity": "1"
+    },
+    "heroScroll": {
+      "transform": "matrix(0.9778, 0, 0, 0.9778, 0, 0)",
+      "opacity": "0.6889"
+    },
+    "cursor": {
+      "opacity": "1",
+      "trails": 5
+    },
+    "graphicPointer": "matrix(1, -0.00175, 0.00175, 1, 2.7852, -9.60625)",
+    "reducedMotion": true,
+    "noJavaScript": {
+      "h1": "1",
+      "projects": [
+        "1",
+        "1",
+        "1"
+      ],
+      "navigation": "Projects / About / Contact"
+    }
+  }
+}

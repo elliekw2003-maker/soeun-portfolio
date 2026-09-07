@@ -1,0 +1,138 @@
+export const projects = [
+  {
+    number: "01",
+    title: "ACE Tennis Scheduler",
+    type: "Client Project",
+    role: "Frontend Developer",
+    description:
+      "A tennis fixture scheduling system developed for the Waverley Tennis Association.",
+    work: [
+      "Refined the Competition Management workflow from regular client feedback",
+      "Implemented Section and Club filtering in the existing frontend",
+      "Designed constraint review and scheduling feedback states",
+    ],
+    tech: ["Next.js", "TypeScript", "Ant Design", "Figma", "Git"],
+    images: [
+      {
+        src: "/projects/ace-1.png",
+        width: 3274,
+        height: 2048,
+        alt: "ACE Tennis Scheduler competition overview with section and club filters above the teams table.",
+        caption: "Competition Management",
+      },
+      {
+        src: "/projects/ace-2.png",
+        width: 3274,
+        height: 2048,
+        alt: "ACE Tennis Scheduler teams table with section OSD-A 2 selected and two teams displayed.",
+        caption: "Section Filter",
+      },
+      {
+        src: "/projects/ace-3.png",
+        width: 3274,
+        height: 2048,
+        alt: "ACE Tennis Scheduler constraints table listing related teams and outcomes marked not evaluated.",
+        caption: "Constraint Review",
+      },
+      {
+        src: "/projects/ace-4.png",
+        width: 3274,
+        height: 2048,
+        alt: "ACE Tennis Scheduler scheduling failed message showing a court availability constraint and affected teams.",
+        caption: "Scheduling Error",
+      },
+      {
+        src: "/projects/ace-5.png",
+        width: 3274,
+        height: 2048,
+        alt: "ACE Tennis Scheduler scheduling completed message with View Results and Export Fixtures controls.",
+        caption: "Fixture Ready",
+      },
+    ],
+    aspectRatio: 3274 / 2048,
+    portrait: false,
+  },
+  {
+    number: "02",
+    title: "Lunchie Munchie",
+    type: "Team Project",
+    role: "Software Developer",
+    description:
+      "A food discovery app with restaurant course planning, social features, and a customisable Lunchicken character.",
+    work: [
+      "Built feed and profile features including likes, saves, comments and follows",
+      "Developed character customisation for outfits, accessories and expressions",
+      "Implemented persistent character progression and equipped-item state",
+    ],
+    tech: ["React", "TypeScript", "Git"],
+    images: [
+      {
+        src: "/projects/lunchie-1.png",
+        revision: "f61c87448d",
+        width: 482,
+        height: 974,
+        alt: "Lunchie Munchie character room with a Lunchicken preview, clothing categories and outfit choices.",
+        caption: "Character Wardrobe",
+      },
+      {
+        src: "/projects/lunchie-2.png",
+        revision: "0c41c5c380",
+        width: 501,
+        height: 971,
+        alt: "Lunchie Munchie feed with a cafe photo collage post, search and filter controls, and reactions and comments.",
+        caption: "Munchie Feed",
+      },
+      {
+        src: "/projects/lunchie-3.png",
+        revision: "0ded5a4a74",
+        width: 488,
+        height: 973,
+        alt: "Lunchie Munchie profile with a character display, follower counts and a grid of food posts.",
+        caption: "Profile & Posts",
+      },
+      {
+        src: "/projects/lunchie-4.png",
+        revision: "77df634f7a",
+        width: 474,
+        height: 975,
+        alt: "Lunchie Munchie home screen with Coffee, Foodie and Dessert cards, a Quick Match button and Munchie posts.",
+        caption: "Home & Quick Match",
+      },
+    ],
+    aspectRatio: 474 / 975,
+    portrait: true,
+  },
+  {
+    number: "03",
+    title: "ShiftPilot",
+    type: "Independent Project",
+    role: "Full-Stack Developer",
+    description:
+      "A workforce scheduling app for creating weekly rosters and checking staff coverage.",
+    work: [
+      "Built weekly roster management with role-specific staffing requirements",
+      "Added coverage checks for understaffed and unassigned shifts",
+      "Built the full-stack application with a REST API and PostgreSQL database",
+    ],
+    tech: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "REST APIs"],
+    images: [
+      {
+        src: "/projects/shiftpilot-1.png",
+        width: 1510,
+        height: 875,
+        alt: "ShiftPilot weekly roster with role-based shift cards marked fully staffed, understaffed or empty.",
+        caption: "Weekly Roster",
+      },
+      {
+        src: "/projects/shiftpilot-2.png",
+        width: 1838,
+        height: 925,
+        alt: "ShiftPilot dashboard with staffing summary cards, shifts needing attention and an upcoming shifts table.",
+        caption: "Staffing Dashboard",
+      },
+    ],
+    aspectRatio: 1510 / 875,
+    portrait: false,
+  },
+] as const;
+
