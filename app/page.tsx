@@ -37,7 +37,7 @@ export default function Home() {
               I build interactive web applications with React, Next.js and TypeScript.
             </p>
             <a className="projectButton" href="#work">
-              Explore projects <span aria-hidden="true">↘</span>
+              Explore projects <span aria-hidden="true">{"↘\uFE0E"}</span>
             </a>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function Home() {
 
         <div className="contactLinks">
           <a className="emailLink" href="mailto:elliekw2003@gmail.com">
-            <span>elliekw2003@gmail.com</span> <span aria-hidden="true">↗</span>
+            <span>elliekw2003@gmail.com</span> <span aria-hidden="true">{"↗\uFE0E"}</span>
           </a>
 
           <div>
@@ -129,7 +129,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              GitHub ↗
+              GitHub {"↗\uFE0E"}
             </a>
 
             <a
@@ -137,7 +137,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              LinkedIn ↗
+              LinkedIn {"↗\uFE0E"}
             </a>
           </div>
         </div>

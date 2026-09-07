@@ -18,10 +18,10 @@ export default function ProjectExplorer({ projects, children }: { projects: Summ
   }, []);
   return <div className="projectExplorer" ref={root}>
     <aside className="projectIndex">
-      <p className="indexLabel">SELECTED PROJECTS <span aria-hidden="true">✳</span></p>
+      <p className="indexLabel">SELECTED PROJECTS <span aria-hidden="true">{"✳\uFE0E"}</span>
       <p className="projectCount"><span key={active}>{projects[active].number}</span><small> / 03</small></p>
       <nav aria-label="Project selection">{projects.map((project, index) => <a href={`#project-${project.number}`} key={project.number} className={active === index ? "isActive" : ""} aria-current={active === index ? "location" : undefined} onMouseEnter={() => setActive(index)} onFocus={() => setActive(index)}>
-        <small>{project.number} — {project.type}</small><strong>{project.title}<span aria-hidden="true">↗</span></strong><span>{project.role}</span>
+        <small>{project.number} — {project.type}</small><strong>{project.title}<span aria-hidden="true">{"↗\uFE0E"}</span></strong><span>{project.role}</span>
       </a>)}</nav>
       <div className="projectProgress" aria-hidden="true"><span style={{ width: `${(active + 1) / projects.length * 100}%` }} /></div>
     </aside>
