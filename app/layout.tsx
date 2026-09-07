@@ -13,10 +13,24 @@ const syne = Syne({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Soeun Kwon",
-  description:
-    "Software developer portfolio of Soeun Kwon. I am a software developer with a passion for building web applications and exploring new technologies. This portfolio showcases my projects, skills, and experience in the field of software development.",
+  description: "Software developer portfolio of Soeun Kwon.",
+  openGraph: {
+    title: "Soeun Kwon",
+    description: "Software Developer Portfolio",
+    url: "https://soeun-portfolio.vercel.app",
+    siteName: "Soeun Kwon",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Soeun Kwon Software Developer Portfolio",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
