@@ -1,0 +1,115 @@
+.gallery {
+  container-type: inline-size;
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.portrait {
+  background: var(--surface);
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  touch-action: pan-y pinch-zoom;
+}
+
+.portrait .frame {
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.image {
+  object-fit: contain;
+  user-select: none;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 12px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.caption {
+  display: grid;
+  overflow-wrap: anywhere;
+}
+
+.caption > span {
+  grid-area: 1 / 1;
+}
+
+.captionSizer {
+  visibility: hidden;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: 8px;
+}
+
+.counter {
+  min-width: 5ch;
+  margin-right: 4px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.controls button {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+  background: var(--mint);
+  color: var(--text);
+  font: inherit;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.controls button:hover,
+.controls button:focus-visible {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--bg);
+}
+
+.controls button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+/* Only the brief status is hidden visually; screenshots never use clipping. */
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@container (max-width: 480px) {
+  .footer {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .controls button { transition: none; }
+}

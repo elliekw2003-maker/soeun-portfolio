@@ -1,4 +1,5 @@
-import Image from "next/image";
+import ProjectGallery from "./components/ProjectGallery";
+import ProjectReveal from "./components/ProjectReveal";
 
 const projects = [
   {
@@ -14,9 +15,35 @@ const projects = [
       "Designed constraint review and scheduling feedback states",
     ],
     tech: ["Next.js", "TypeScript", "Ant Design", "Figma", "Git"],
-    image: "/projects/ace-main.png",
+    images: [
+      {
+        src: "/projects/ace-1.png",
+        alt: "ACE Tennis Scheduler competition overview with section and club filters above the teams table.",
+        caption: "Competition Management",
+      },
+      {
+        src: "/projects/ace-2.png",
+        alt: "ACE Tennis Scheduler teams table with section OSD-A 2 selected and two teams displayed.",
+        caption: "Section Filter",
+      },
+      {
+        src: "/projects/ace-3.png",
+        alt: "ACE Tennis Scheduler constraints table listing related teams and outcomes marked not evaluated.",
+        caption: "Constraint Review",
+      },
+      {
+        src: "/projects/ace-4.png",
+        alt: "ACE Tennis Scheduler scheduling failed message showing a court availability constraint and affected teams.",
+        caption: "Scheduling Error",
+      },
+      {
+        src: "/projects/ace-5.png",
+        alt: "ACE Tennis Scheduler scheduling completed message with View Results and Export Fixtures controls.",
+        caption: "Fixture Ready",
+      },
+    ],
+    aspectRatio: 3274 / 2048,
     portrait: false,
-    visualLabel: "Competition Management",
   },
   {
     number: "02",
@@ -31,9 +58,30 @@ const projects = [
       "Implemented persistent character progression and equipped-item state",
     ],
     tech: ["React", "TypeScript", "Git"],
-    image: "/projects/lunchie-main.png",
+    images: [
+      {
+        src: "/projects/lunchie-1.png",
+        alt: "Lunchie Munchie character room with a Lunchicken preview, clothing categories and outfit choices.",
+        caption: "Character Wardrobe",
+      },
+      {
+        src: "/projects/lunchie-2.png",
+        alt: "Lunchie Munchie feed with category filters and a food photo post with reaction and comment controls.",
+        caption: "Munchie Feed",
+      },
+      {
+        src: "/projects/lunchie-3.png",
+        alt: "Lunchie Munchie profile with a character display, follower counts and a grid of food posts.",
+        caption: "Profile & Posts",
+      },
+      {
+        src: "/projects/lunchie-4.png",
+        alt: "Lunchie Munchie home screen with Coffee, Foodie and Dessert cards, a Quick Match button and Munchie posts.",
+        caption: "Home & Quick Match",
+      },
+    ],
+    aspectRatio: 678 / 1474,
     portrait: true,
-    visualLabel: "Character Customisation",
   },
   {
     number: "03",
@@ -48,234 +96,181 @@ const projects = [
       "Built the full-stack application with a REST API and PostgreSQL database",
     ],
     tech: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "REST APIs"],
-    image: "/projects/shiftpilot-main.png",
+    images: [
+      {
+        src: "/projects/shiftpilot-1.png",
+        alt: "ShiftPilot weekly roster with role-based shift cards marked fully staffed, understaffed or empty.",
+        caption: "Weekly Roster",
+      },
+      {
+        src: "/projects/shiftpilot-2.png",
+        alt: "ShiftPilot dashboard with staffing summary cards, shifts needing attention and an upcoming shifts table.",
+        caption: "Staffing Dashboard",
+      },
+    ],
+    aspectRatio: 1510 / 875,
     portrait: false,
-    visualLabel: "Weekly Roster",
   },
-];
+] as const;
 
 export default function Home() {
   return (
     <main>
       {/* NAV */}
-      <nav className="nav">
-        <a href="#top" className="logo">
-          SK
+      <nav className="nav container" aria-label="Main navigation">
+        <a href="#top" className="logo" aria-label="Soeun Kwon — back to top">
+          Soeun Kwon<span className="nameDot" aria-hidden="true" />
         </a>
 
         <div className="navLinks">
-          <a href="#work">Work</a>
+          <a href="#work">Projects</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="hero" id="top">
-        <div className="heroEyebrow">
-          FRONTEND DEVELOPER · MELBOURNE, AUSTRALIA
-        </div>
-
-        <div className="heroMain">
-          <h1>
-            Hi, I&apos;m <span>Soeun.</span>
-            <br />
-            I design &amp; build
-            <br />
-            digital interfaces.
-          </h1>
-        </div>
-
+      <section className="hero container" id="top" aria-labelledby="hero-title">
+        <p className="heroIntro">Hi, I’m Soeun.</p>
+        <h1 id="hero-title">
+          <span className="heroLine">FRONTEND</span>{" "}
+          <span className="heroLine">DEVELOPER.</span>
+        </h1>
         <div className="heroBottom">
-          <p>
-            Computing and Software Systems student at the University of
-            Melbourne, focused on frontend development and turning project
-            requirements into working interfaces.
-          </p>
-
-          <a className="scrollButton" href="#work" aria-label="View work">
-            ↓
-          </a>
+          <div className="heroSignature">
+            <svg className="heroGraphic" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+              <circle cx="40" cy="40" r="36" fill="currentColor" />
+              <path d="M40 18V62M18 40H62M24.5 24.5L55.5 55.5M24.5 55.5L55.5 24.5" stroke="var(--text)" strokeWidth="2" />
+            </svg>
+            <p className="heroLocation">Based in Melbourne,<br />Australia.</p>
+          </div>
+          <div className="heroCopy">
+            <p className="heroDescription">
+              I build interactive web applications with React, Next.js and TypeScript.
+            </p>
+            <a className="projectButton" href="#work">
+              Explore projects <span aria-hidden="true">↘</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* SKILLS STRIP */}
-      <div className="skillStrip">
-        <span>React</span>
-        <span>TypeScript</span>
-        <span>Next.js</span>
-        <span>Figma</span>
-        <span>Frontend Development</span>
-      </div>
-
-      {/* WORK */}
-      <section className="workSection" id="work">
+      {/* PROJECTS */}
+      <section className="workSection container" id="work" aria-labelledby="projects-title">
         <div className="sectionTitle">
-          <span>Selected Work</span>
-          <span>2026</span>
+          <h2 id="projects-title">Projects</h2>
+          <span>Client, team &amp; independent work</span>
         </div>
 
         <div className="projectList">
           {projects.map((project) => (
-            <article className="project" key={project.title}>
-              <div className="projectHeading">
-                <span className="projectNumber">{project.number}</span>
-
-                <div className="projectType">
-                  <span>{project.type}</span>
-                  <span>{project.role}</span>
-                </div>
-              </div>
-
-              <h2>{project.title}</h2>
-
-              <div
-                className={`projectContent ${
-                  project.portrait ? "portraitProject" : ""
-                }`}
-              >
-                {/* IMAGE */}
-                <div
-                  className={`projectVisual ${
-                    project.portrait
-                      ? "portraitVisual"
-                      : "landscapeVisual"
-                  }`}
-                >
-                  <div className="visualLabel">{project.visualLabel}</div>
-
-                  <div
-                    className={
-                      project.portrait
-                        ? "portraitImageWrap"
-                        : "landscapeImageWrap"
-                    }
-                  >
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} interface`}
-                      width={project.portrait ? 680 : 1600}
-                      height={project.portrait ? 1474 : 950}
-                      className={
-                        project.portrait
-                          ? "portraitImage"
-                          : "landscapeImage"
-                      }
-                      priority={project.number === "01"}
-                    />
-                  </div>
-                </div>
-
-                {/* TEXT */}
+            <ProjectReveal key={project.title}>
+              <div className="projectContent">
                 <div className="projectDetails">
-                  <p className="projectDescription">
-                    {project.description}
-                  </p>
-
-                  <div className="detailBlock">
-                    <p className="detailLabel">What I worked on</p>
-
-                    <div className="workItems">
-                      {project.work.map((item, index) => (
-                        <div className="workItem" key={item}>
-                          <span>0{index + 1}</span>
-                          <p>{item}</p>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="projectHeading">
+                    <span className="projectNumber">{project.number}</span>
+                    <span className="projectType">{project.type}</span>
                   </div>
-
+                  <h3>{project.title}</h3>
+                  <p className="projectRole">{project.role}</p>
+                  <p className="projectDescription">{project.description}</p>
                   <div className="detailBlock">
-                    <p className="detailLabel">Stack</p>
-
-                    <div className="techList">
-                      {project.tech.map((item) => (
-                        <span key={item}>{item}</span>
+                    <h4 className="detailLabel">My contribution</h4>
+                    <ol className="workItems">
+                      {project.work.map((item, index) => (
+                        <li className="workItem" key={item}>
+                          <span aria-hidden="true">0{index + 1}</span>
+                          <p>{item}</p>
+                        </li>
                       ))}
+                    </ol>
+                  </div>
+                  <div className="detailBlock">
+                    <h4 className="detailLabel">Stack</h4>
+                    <div className="techList">
+                      {project.tech.map((item) => <span key={item}>{item}</span>)}
                     </div>
                   </div>
                 </div>
+                <ProjectGallery
+                  projectTitle={project.title}
+                  images={project.images}
+                  aspectRatio={project.aspectRatio}
+                  portrait={project.portrait}
+                />
               </div>
-            </article>
+            </ProjectReveal>
           ))}
         </div>
       </section>
 
       {/* ABOUT */}
-      <section className="aboutSection" id="about">
-        <div className="sectionTitle aboutTitle">
-          <span>About</span>
-          <span>04</span>
-        </div>
+      <section className="aboutSection" id="about" aria-labelledby="about-title">
+        <div className="container">
+          <div className="aboutIntro">
+            <h2 id="about-title">A little<br />about me.</h2>
 
-        <div className="aboutIntro">
-          <h2>
-            I like working between
-            <br />
-            <span>design and development.</span>
-          </h2>
-
-          <div className="aboutCopy">
-            <p>
-              I&apos;m a Computing and Software Systems student at the
-              University of Melbourne, with a focus on frontend development.
-            </p>
-
-            <p>
-              Through client, team, and independent projects, I&apos;ve worked
-              across UI design, frontend implementation, APIs and
-              database-backed applications.
-            </p>
-          </div>
-        </div>
-
-        <div className="skills">
-          <div className="skillColumn">
-            <p className="detailLabel darkLabel">Frontend</p>
-            <span>React</span>
-            <span>Next.js</span>
-            <span>TypeScript</span>
-            <span>JavaScript</span>
+            <div className="aboutCopy">
+              <p className="aboutLead">
+                I’m Soeun, a frontend developer studying Computing and Software Systems
+                at the University of Melbourne.
+              </p>
+              <p>
+                I enjoy figuring out how an application should work, then bringing it
+                to life through code. My projects span client-facing scheduling tools,
+                team-built applications and independent full-stack development.
+              </p>
+              <p>
+                I work mainly with React, Next.js and TypeScript, with additional
+                experience in APIs and databases.
+              </p>
+            </div>
           </div>
 
-          <div className="skillColumn">
-            <p className="detailLabel darkLabel">Design & Collaboration</p>
-            <span>Figma</span>
-            <span>Git</span>
-            <span>GitHub</span>
-          </div>
+          <div className="skills">
+            <div className="skillColumn">
+              <h3 className="detailLabel">Frontend</h3>
+              <span>React</span>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>JavaScript</span>
+            </div>
 
-          <div className="skillColumn">
-            <p className="detailLabel darkLabel">Backend & Data</p>
-            <span>NestJS</span>
-            <span>REST APIs</span>
-            <span>PostgreSQL</span>
-            <span>Prisma</span>
-          </div>
+            <div className="skillColumn">
+              <h3 className="detailLabel">Tools &amp; Collaboration</h3>
+              <span>Figma</span>
+              <span>Git</span>
+              <span>GitHub</span>
+            </div>
 
-          <div className="skillColumn">
-            <p className="detailLabel darkLabel">Education</p>
-            <span>University of Melbourne</span>
-            <span>Bachelor of Science</span>
-            <span>Computing and Software Systems</span>
-            <span>Expected Jan 2027</span>
+            <div className="skillColumn">
+              <h3 className="detailLabel">Backend &amp; Data</h3>
+              <span>NestJS</span>
+              <span>REST APIs</span>
+              <span>PostgreSQL</span>
+              <span>Prisma</span>
+            </div>
+
+            <div className="skillColumn">
+              <h3 className="detailLabel">Education</h3>
+              <span>University of Melbourne</span>
+              <span>Bachelor of Science</span>
+              <span>Computing and Software Systems</span>
+              <span>Expected 2026</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section className="contactSection" id="contact">
+      <section className="contactSection container" id="contact" aria-labelledby="contact-title">
         <p className="contactLabel">GET IN TOUCH</p>
 
-        <h2>
-          Let&apos;s build
-          <br />
-          something good.
-        </h2>
+        <h2 id="contact-title">Let’s connect.</h2>
 
         <div className="contactLinks">
-          <a href="mailto:elliekw2003@gmail.com">
-            elliekw2003@gmail.com ↗
+          <a className="emailLink" href="mailto:elliekw2003@gmail.com">
+            <span>elliekw2003@gmail.com</span> <span aria-hidden="true">↗</span>
           </a>
 
           <div>
@@ -298,7 +293,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
+      <footer className="container">
         <span>© 2026 Soeun Kwon</span>
         <a href="#top">Back to top ↑</a>
       </footer>

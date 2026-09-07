@@ -1,635 +1,190 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f4f2ed;
-  --text: #171717;
-  --muted: #706e68;
-  --line: #cfccc4;
-  --blue: #3157ff;
-  --dark: #181818;
+  --bg: #fafaf7;
+  --text: #173c3c;
+  --muted: #496660;
+  --line: #d9e2dc;
+  --mint: #9bdabe;
+  --surface: #edf5ef;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-padding-top: 24px; }
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
 }
-
+::selection { background: var(--mint); color: var(--text); }
 a {
   color: inherit;
   text-decoration: none;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+  transition: background-color 160ms ease, color 160ms ease;
 }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; }
+h1, h2, .project h3 { font-family: var(--font-syne), var(--font-geist-sans), sans-serif; }
+.container { width: calc(100% - 96px); max-width: 1280px; margin-inline: auto; }
 
-main {
-  width: 100%;
-  overflow: hidden;
-}
-
-/* =========================
-   NAV
-========================= */
-
+/* Navigation */
 .nav {
-  height: 86px;
-  padding: 0 4vw;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   border-bottom: 1px solid var(--line);
 }
-
 .logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--text);
-  color: white;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.navLinks {
-  display: flex;
-  gap: 34px;
-  font-size: 14px;
-}
-
-.navLinks a {
-  transition: opacity 0.2s ease;
-}
-
-.navLinks a:hover {
-  opacity: 0.45;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  min-height: calc(100vh - 86px);
-  padding: 8vh 4vw 5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.heroEyebrow {
-  font-size: 12px;
-  letter-spacing: 0.08em;
-}
-
-.hero h1 {
-  margin: 7vh 0;
-  font-weight: 500;
-  font-size: clamp(60px, 7.6vw, 128px);
-  line-height: 0.92;
-  letter-spacing: -0.065em;
-}
-
-.hero h1 span {
-  color: var(--blue);
-}
-
-.heroBottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 50px;
-}
-
-.heroBottom p {
-  margin: 0;
-  max-width: 560px;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #56534d;
-}
-
-.scrollButton {
-  width: 74px;
-  height: 74px;
-  border: 1px solid var(--text);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  transition: all 0.25s ease;
-}
-
-.scrollButton:hover {
-  background: var(--text);
-  color: white;
-  transform: translateY(5px);
-}
-
-/* =========================
-   SKILL STRIP
-========================= */
-
-.skillStrip {
-  padding: 18px 4vw;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  white-space: nowrap;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.07em;
-}
-
-/* =========================
-   WORK
-========================= */
-
-.workSection {
-  padding: 110px 4vw 40px;
-}
-
-.sectionTitle {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--text);
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.09em;
-}
-
-.project {
-  padding: 85px 0 120px;
-  border-bottom: 1px solid var(--line);
-}
-
-.projectHeading {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 26px;
-}
-
-.projectNumber {
-  font-size: 13px;
-}
-
-.projectType {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-
-.project h2 {
-  margin: 0 0 45px;
-  font-size: clamp(48px, 5vw, 82px);
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-  font-weight: 500;
-}
-
-/* Image gets more space than text */
-
-.projectContent {
-  display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.75fr);
-  gap: 5vw;
-  align-items: start;
-}
-
-/* =========================
-   PROJECT VISUAL
-========================= */
-
-.projectVisual {
-  position: relative;
-  overflow: hidden;
-}
-
-.visualLabel {
-  position: absolute;
-  z-index: 2;
-  top: 18px;
-  left: 18px;
-
-  padding: 8px 12px;
-  border-radius: 100px;
-
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-/* ACE + ShiftPilot */
-
-.landscapeVisual {
-  min-height: 600px;
-  padding: 55px 12px 12px;
-  background: #e5e7e8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.landscapeImageWrap {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.landscapeImage {
-  width: 108%;
-  height: auto;
-  max-width: none;
-  display: block;
-  object-fit: contain;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.09);
-}
-
-/* Lunchie */
-
-.portraitVisual {
-  min-height: 680px;
-  padding: 50px;
-  background: #efe5dc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.portraitImageWrap {
-  height: 600px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.portraitImage {
-  width: auto;
-  height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-
-  border-radius: 20px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
-}
-
-/* =========================
-   PROJECT DETAILS
-========================= */
-
-.projectDetails {
-  padding-top: 4px;
-}
-
-.projectDescription {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.55;
-  color: #55524c;
-}
-
-.detailBlock {
-  margin-top: 48px;
-}
-
-.detailLabel {
-  margin: 0 0 18px;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.11em;
-  color: var(--muted);
-}
-
-.workItems {
-  border-top: 1px solid var(--line);
-}
-
-.workItem {
-  display: grid;
-  grid-template-columns: 34px 1fr;
   gap: 10px;
-  padding: 15px 0;
-  border-bottom: 1px solid var(--line);
+  min-height: 44px;
+  font-family: var(--font-syne), sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
+.nameDot { width: 9px; height: 9px; border-radius: 50%; background: var(--mint); }
+.navLinks { display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; }
+.navLinks a, .contactLinks a, footer a { display: inline-flex; align-items: center; min-height: 44px; }
+.navLinks a { padding-inline: 8px; border-radius: 4px; }
+.navLinks a:hover, .navLinks a:focus-visible { background: var(--surface); }
 
-.workItem span {
-  color: #96928b;
-  font-size: 10px;
-  padding-top: 3px;
-}
-
-.workItem p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.45;
-}
-
-.techList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-
-.techList span {
-  padding: 7px 11px;
-  border: 1px solid #aaa69e;
-  border-radius: 100px;
-  font-size: 10px;
-}
-
-/* =========================
-   ABOUT
-========================= */
-
-.aboutSection {
-  padding: 110px 4vw;
-  background: var(--dark);
-  color: white;
-}
-
-.aboutTitle {
-  border-color: #555;
-}
-
-.aboutIntro {
-  margin-top: 75px;
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 8vw;
-  align-items: start;
-}
-
-.aboutIntro h2 {
-  margin: 0;
-  font-size: clamp(50px, 6vw, 98px);
-  line-height: 0.97;
-  letter-spacing: -0.055em;
-  font-weight: 500;
-}
-
-.aboutIntro h2 span {
-  color: #777;
-}
-
-.aboutCopy p {
-  margin: 0 0 28px;
-  color: #bcbcbc;
-  font-size: 17px;
-  line-height: 1.65;
-}
-
-.skills {
-  margin-top: 120px;
-  padding-top: 38px;
-  border-top: 1px solid #444;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 55px;
-}
-
-.skillColumn {
+/* Hero: two strong lines with an offset second line and a quieter introduction. */
+.hero {
+  min-height: min(900px, calc(100svh - 100px));
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  justify-content: center;
+  padding-block: 64px 72px;
 }
-
-.skillColumn span {
-  font-size: 14px;
-}
-
-.darkLabel {
-  color: #777;
-  margin-bottom: 14px;
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contactSection {
-  padding: 120px 4vw 80px;
-}
-
-.contactLabel {
+.heroIntro { display: flex; align-items: center; gap: 16px; margin: 0 0 28px; font-size: 18px; }
+.heroIntro::before { content: ""; width: 40px; height: 1px; background: var(--text); }
+.hero h1 {
   margin: 0;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 0.11em;
+  font-size: clamp(44px, 10.2vw, 146px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
-
-.contactSection h2 {
-  margin: 65px 0 110px;
-  font-size: clamp(72px, 9vw, 150px);
-  line-height: 0.86;
-  letter-spacing: -0.07em;
+.heroLine { display: block; animation: hero-arrive 650ms cubic-bezier(0.2, 0.65, 0.3, 1) both; }
+.heroLine + .heroLine { text-align: right; animation-delay: 90ms; }
+.heroBottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; margin-top: 56px; }
+.heroSignature { display: flex; align-items: center; gap: 24px; }
+.heroGraphic { width: 72px; height: 72px; flex-shrink: 0; color: var(--mint); }
+.heroLocation { margin: 0; font-size: 13px; color: var(--muted); }
+.heroCopy { width: 420px; max-width: 100%; }
+.heroDescription { margin: 0 0 24px; font-size: 18px; line-height: 1.6; }
+.projectButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 52px;
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  background: var(--mint);
+  font-size: 15px;
   font-weight: 500;
 }
+.projectButton:hover, .projectButton:focus-visible { background: var(--text); color: var(--bg); text-decoration: none; }
+.projectButton span { font-size: 22px; line-height: 1; }
+@keyframes hero-arrive { from { opacity: 0.35; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-.contactLinks {
-  border-top: 1px solid var(--text);
-  padding-top: 25px;
+/* Project information on the left; larger, independent galleries on the right. */
+.workSection { padding-block: 72px 96px; }
+.sectionTitle { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.sectionTitle h2 { margin: 0; font-size: clamp(38px, 4.8vw, 68px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.1; }
+.sectionTitle > span { color: var(--muted); font-size: 13px; }
+.project { padding-block: 72px; border-bottom: 1px solid var(--line); }
+.projectContent { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr); gap: 64px; align-items: start; }
+.projectDetails { min-width: 0; }
+.projectHeading { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.projectNumber { display: inline-grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; font-size: 12px; font-variant-numeric: tabular-nums; }
+.projectType { font-size: 12px; color: var(--muted); }
+.project h3 { margin: 0 0 16px; font-size: clamp(32px, 3.2vw, 46px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
+.projectRole { margin: 0 0 20px; font-size: 13px; font-weight: 600; }
+.projectDescription { margin: 0; color: var(--muted); font-size: 17px; }
+.detailBlock { margin-top: 28px; }
+.detailLabel { margin: 0 0 12px; color: var(--muted); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.07em; }
+.workItems { margin: 0; padding: 0; list-style: none; }
+.workItem { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 12px; padding-block: 12px; border-top: 1px solid var(--line); }
+.workItem span { padding-top: 3px; color: var(--muted); font-size: 12px; }
+.workItem p { margin: 0; font-size: 16px; line-height: 1.6; }
+.techList { display: flex; flex-wrap: wrap; gap: 8px; }
+.techList span { max-width: 100%; padding: 5px 11px; border: 1px solid var(--line); border-radius: 100px; background: var(--surface); font-size: 12px; }
 
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
+/* About */
+.aboutSection { padding-block: 104px 88px; background: var(--surface); }
+.aboutIntro { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 80px; align-items: start; }
+.aboutIntro h2 { margin: 0; font-size: clamp(42px, 5vw, 72px); font-weight: 600; line-height: 1.1; letter-spacing: -0.03em; }
+.aboutCopy { padding-top: 48px; }
+.aboutCopy p { margin: 0 0 24px; color: var(--muted); font-size: 17px; }
+.aboutCopy .aboutLead { font-size: 22px; color: var(--text); line-height: 1.5; }
+.aboutCopy p:last-child { margin-bottom: 0; }
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.4fr); gap: 32px; margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); }
+.skillColumn { display: flex; flex-direction: column; gap: 8px; }
+.skillColumn span { font-size: 15px; }
+.skillColumn .detailLabel { margin-bottom: 12px; }
 
-  font-size: 14px;
-}
-
-.contactLinks > div {
-  display: flex;
-  gap: 30px;
-}
-
-.contactLinks a:hover {
-  opacity: 0.5;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  padding: 25px 4vw;
-  display: flex;
-  justify-content: space-between;
-
-  border-top: 1px solid var(--line);
-
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-}
-
-/* =========================
-   TABLET
-========================= */
+/* Contact */
+.contactSection { padding-block: 104px 72px; }
+.contactLabel { margin: 0; color: var(--muted); font-size: 12px; letter-spacing: 0.07em; }
+.contactSection h2 { margin: 20px 0 36px; font-size: clamp(44px, 6vw, 84px); font-weight: 600; line-height: 1.1; letter-spacing: -0.035em; }
+.contactLinks { display: flex; flex-direction: column; gap: 32px; }
+.emailLink { align-self: flex-start; flex-wrap: wrap; gap: 12px 24px; max-width: 100%; padding-block: 8px; border-bottom: 1px solid var(--text); font-size: clamp(20px, 3.6vw, 48px); line-height: 1.3; letter-spacing: -0.02em; }
+.emailLink > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.emailLink:hover, .emailLink:focus-visible { background: var(--mint); text-decoration: none; }
+.contactLinks > div { display: flex; flex-wrap: wrap; gap: 32px; font-size: 14px; }
+.contactLinks > div a:hover { background: var(--surface); }
+footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-block: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 
 @media (max-width: 1000px) {
-  .projectContent {
-    grid-template-columns: 1fr;
-  }
-
-  .projectDetails {
-    max-width: 650px;
-  }
-
-  .landscapeVisual {
-    min-height: auto;
-  }
-
-  .aboutIntro {
-    grid-template-columns: 1fr;
-  }
-
-  .skills {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .projectContent, .aboutIntro { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .projectDetails { max-width: 680px; }
+  .aboutCopy { padding-top: 0; max-width: 680px; }
+  .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .heroBottom { align-items: flex-start; }
+  .heroSignature { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .heroCopy { width: 380px; }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 650px) {
-  .nav {
-    height: 70px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+  .container { width: calc(100% - 40px); }
+  .nav { min-height: 100px; align-content: center; justify-content: flex-start; flex-wrap: wrap; gap: 0 20px; padding-block: 10px; }
+  .logo { width: 100%; font-size: 20px; }
+  .navLinks { gap: 20px; font-size: 13px; }
+  .navLinks a { padding-inline: 0; }
+  .hero { min-height: 0; padding-block: 48px 64px; }
+  .heroIntro { margin-bottom: 32px; font-size: 16px; }
+  .hero h1 { font-size: clamp(40px, 10.4vw, 68px); letter-spacing: -0.035em; }
+  .heroLine + .heroLine { text-align: left; }
+  .heroBottom { flex-direction: column-reverse; gap: 36px; margin-top: 36px; }
+  .heroSignature { flex-direction: row; align-items: center; gap: 16px; }
+  .heroGraphic { width: 48px; height: 48px; }
+  .heroDescription, .projectDescription, .aboutCopy p { font-size: 16px; }
+  .heroCopy { width: 100%; }
+  .workSection { padding-block: 40px 56px; }
+  .sectionTitle { flex-direction: column; gap: 12px; padding-bottom: 24px; }
+  .project { padding-block: 40px; }
+  .projectHeading { margin-bottom: 20px; }
+  .projectContent { gap: 32px; }
+  .aboutSection, .contactSection { padding-block: 56px; }
+  .aboutCopy .aboutLead { font-size: 20px; }
+  .skills { grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 40px; }
+  .emailLink { gap: 12px; }
+}
 
-  .navLinks {
-    gap: 18px;
-    font-size: 12px;
-  }
-
-  .logo {
-    width: 38px;
-    height: 38px;
-  }
-
-  .hero {
-    min-height: 720px;
-    padding: 65px 20px 35px;
-  }
-
-  .heroEyebrow {
-    font-size: 9px;
-  }
-
-  .hero h1 {
-    margin-top: 75px;
-    font-size: 15vw;
-  }
-
-  .heroBottom {
-    gap: 25px;
-  }
-
-  .heroBottom p {
-    font-size: 14px;
-  }
-
-  .scrollButton {
-    width: 54px;
-    height: 54px;
-    flex-shrink: 0;
-  }
-
-  .skillStrip {
-    padding-left: 20px;
-    padding-right: 20px;
-    justify-content: flex-start;
-    overflow-x: auto;
-  }
-
-  .workSection,
-  .aboutSection,
-  .contactSection {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .project {
-    padding-top: 65px;
-    padding-bottom: 80px;
-  }
-
-  .project h2 {
-    margin-bottom: 30px;
-  }
-
-  .projectType {
-    max-width: 160px;
-  }
-
-  .projectContent {
-    gap: 35px;
-  }
-
-  .landscapeVisual {
-    padding: 45px 12px 12px;
-  }
-
-  .portraitVisual {
-    min-height: 520px;
-    padding: 45px 20px 20px;
-  }
-
-  .portraitImageWrap {
-    height: 470px;
-  }
-
-  .projectDescription {
-    font-size: 16px;
-  }
-
-  .aboutIntro {
-    margin-top: 55px;
-    gap: 50px;
-  }
-
-  .skills {
-    margin-top: 75px;
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .contactSection h2 {
-    margin-bottom: 80px;
-  }
-
-  .contactLinks {
-    flex-direction: column;
-  }
-
-  .contactLinks > div {
-    flex-direction: column;
-    gap: 12px;
-  }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .heroLine { animation: none; }
+  a { transition: none; }
 }
