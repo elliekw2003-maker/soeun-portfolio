@@ -31,7 +31,7 @@
 .imageButton { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; padding: 0; background: transparent; cursor: zoom-in; }
 .imageButton:hover { outline: 2px solid var(--mint); outline-offset: 3px; }
 .lightbox { position: fixed; inset: 20px; width: calc(100% - 40px); height: calc(100dvh - 40px); max-width: none; max-height: none; margin: 0; padding: 20px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
-.lightbox::backdrop { background: #173c3cc9; }
+.lightbox::backdrop { background: rgba(184, 215, 212, 0.45); }
 .lightbox[open] { display: flex; flex-direction: column; gap: 16px; }
 .lightboxHeader { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; }
 .lightboxHeader p { margin: 0; font-size: 14px; }

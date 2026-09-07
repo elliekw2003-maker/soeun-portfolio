@@ -30,7 +30,7 @@ export default function Home() {
               <circle cx="40" cy="40" r="36" fill="currentColor" />
               <path d="M40 18V62M18 40H62M24.5 24.5L55.5 55.5M24.5 55.5L55.5 24.5" stroke="var(--text)" strokeWidth="2" />
             </svg>
-            <p className="heroLocation">Based in Melbourne,<br />Australia.</p>
+            <p className="heroLocation">In Melbourne,<br />Australia.</p>
           </div>
           <div className="heroCopy">
             <p className="heroDescription">

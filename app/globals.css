@@ -1,5 +1,5 @@
 @import "tailwindcss";
-:root { --bg:#fafaf7; --text:#173c3c; --muted:#496660; --line:#d9e2dc; --mint:#9bdabe; --surface:#edf5ef; }
+:root { --bg:#f4f2ed; --text:#171717; --muted:#706e68; --line:#cfccc4; --mint:#b8d7d4; --surface:#EEEDE7; }
 * { box-sizing:border-box; }
 html { scroll-padding-top:32px; }
 body { margin:0; background:var(--bg); color:var(--text); font-family:var(--font-geist-sans),sans-serif; font-size:16px; line-height:1.65; }
@@ -17,8 +17,8 @@ h1,h2,h3,.projectIndex strong { font-family:var(--font-syne),sans-serif; }
 .menuTrigger:hover,.menuHeader button:hover { background:var(--mint); }
 .menuTrigger span { margin-left:16px; font-size:22px; }
 .hero { min-height:100svh; position:relative; display:flex; flex-direction:column; justify-content:center; padding-block:150px 170px; transform-origin:center top; }
-.heroIntro { margin:0 0 20px; font-size:18px; }
-.hero h1 { margin:0; font-size:clamp(64px,8.34vw,150px); font-weight:700; line-height:1.06; letter-spacing:-.025em; }
+.heroIntro { margin:0 0 20px; font-size:22px; font-weight:500; }
+.hero h1 { margin:0; font-size:clamp(58px,7.2vw,128px); font-weight:700; line-height:1.06; letter-spacing:-.025em; }
 .heroLine { display:block; white-space:nowrap; }
 .heroLine + .heroLine { margin-left:40px; }
 .heroChar { display:inline-block; }
@@ -120,7 +120,7 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
 .customCursor.cursorHover { width:64px; height:64px; margin:-12px; background:#9bdabe30; }
 @media (max-width:1000px) {
 .container { width:calc(100% - 64px); }
-.hero h1 { font-size:9vw; }
+.hero h1 { font-size:7.5vw; }
 .heroCopy { margin-right:0; }
 .projectExplorer { grid-template-columns:minmax(0,1fr); gap:48px; }
 .projectIndex { position:static; }
@@ -139,7 +139,7 @@ footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
 .hero { min-height:0; padding-block:160px 170px; }
 .hero h1 { font-size:9.3vw; letter-spacing:-.025em; }
 .heroLine + .heroLine { margin-left:12px; }
-.heroIntro { font-size:16px; }
+.heroIntro { font-size:18px; }
 .heroBottom { margin-top:30px; }
 .heroCopy { width:100%; }
 .heroDescription { font-size:16px; }
