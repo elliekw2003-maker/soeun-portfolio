@@ -69,7 +69,7 @@ export default function Home() {
         <div className="container">
           <header className="aboutIntro">
             <h2 id="about-title">A little about me<span>.</span></h2>
-            <p className="aboutLead">I’m Soeun, a frontend developer studying Computing and Software Systems at the University of Melbourne.</p>
+            <p className="aboutLead">I’m Soeun, a software developer studying Computing and Software Systems at the University of Melbourne.</p>
             <a href="#about-story" className="aboutScroll">SCROLL <span aria-hidden="true">↓</span></a>
           </header>
           <div className="aboutStory" id="about-story">
