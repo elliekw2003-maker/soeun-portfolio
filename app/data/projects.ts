@@ -11,7 +11,7 @@ export const projects = [
       "Implemented Section and Club filtering in the existing frontend",
       "Designed constraint review and scheduling feedback states",
     ],
-    tech: ["Next.js", "TypeScript", "Ant Design", "Figma", "Git"],
+    tech: ["Next.js", "TypeScript", "Ant Design", "Figma", "Git", "Docker"],
     images: [
       {
         src: "/projects/ace-1.png",
@@ -114,7 +114,7 @@ export const projects = [
       "Added coverage checks for understaffed and unassigned shifts",
       "Built the full-stack application with a REST API and PostgreSQL database",
     ],
-    tech: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "REST APIs"],
+    tech: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "REST APIs", "Docker"],
     images: [
       {
         src: "/projects/shiftpilot-1.png",
