@@ -13,7 +13,7 @@ const syne = Syne({
   display: "swap",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Soeun Kwon",
   description: "Software developer portfolio of Soeun Kwon.",
   openGraph: {
@@ -26,10 +26,16 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Soeun Kwon Software Developer Portfolio",
+        alt: "Soeun Kwon portfolio preview",
       },
     ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Soeun Kwon",
+    description: "Software Developer Portfolio",
+    images: ["/og-image.png"],
   },
 };
 
