@@ -14,9 +14,9 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Soeun Kwon — Frontend Developer",
+  title: "Soeun Kwon",
   description:
-    "Frontend developer based in Melbourne, building web applications with React, Next.js and TypeScript. Explore my projects and development experience.",
+    "Software developer portfolio of Soeun Kwon. I am a software developer with a passion for building web applications and exploring new technologies. This portfolio showcases my projects, skills, and experience in the field of software development.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
