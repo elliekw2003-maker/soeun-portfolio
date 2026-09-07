@@ -23,7 +23,27 @@ export default function SiteMenu() {
     <dialog className="siteMenu" ref={dialog} aria-label="Site navigation" onClose={() => { document.body.style.overflow = previousOverflow.current; trigger.current?.focus({ preventScroll: true }); }}>
       <div className="menuHeader"><span>Soeun Kwon</span><button type="button" onClick={close}>Close <span aria-hidden="true">×</span></button></div>
       <nav aria-label="Main navigation">{[["top", "Home", "Software developer in Melbourne."], ["work", "Projects", "Client, team and independent work."], ["about", "About", "A little about me."], ["contact", "Contact", "Let’s connect."]].map(([id, title, description], index) => <a key={id} href={`#${id}`} onClick={() => dialog.current?.close()} style={{ animationDelay: `${index * 250 + 750}ms` }}><strong>{title}</strong><span>{description}</span></a>)}</nav>
-      <a className="menuEmail" href="mailto:elliekw2003@gmail.com">elliekw2003@gmail.com ↗</a>
+      <a
+  className="menuEmail"
+  href="mailto:elliekw2003@gmail.com"
+>
+  elliekw2003@gmail.com
+
+  <svg
+    className="externalArrow"
+    viewBox="0 0 16 16"
+    fill="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M4 12L12 4M6 4H12V10"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+</a>
     </dialog>
     <noscript><a href="#work">Projects</a> / <a href="#about">About</a> / <a href="#contact">Contact</a></noscript>
   </>;
