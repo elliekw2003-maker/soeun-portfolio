@@ -5,6 +5,25 @@ import ProjectExplorer from "./components/ProjectExplorer";
 import SiteMenu from "./components/SiteMenu";
 import AboutGraphic from "./components/AboutGraphic";
 
+function ExternalArrow() {
+  return (
+    <svg
+      className="externalArrow"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 12L12 4M6 4H12V10"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main>
@@ -120,7 +139,8 @@ export default function Home() {
 
         <div className="contactLinks">
           <a className="emailLink" href="mailto:elliekw2003@gmail.com">
-            <span>elliekw2003@gmail.com</span> <span aria-hidden="true">{"↗\uFE0E"}</span>
+            <span>elliekw2003@gmail.com</span>
+            <ExternalArrow />
           </a>
 
           <div>
